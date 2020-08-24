@@ -228,3 +228,11 @@ PLATFORM_NAME = 'Your Platform Name Here'
 
 # Set up logging for development use (logging to stdout)
 LOGGING = get_logger_config(debug=DEBUG, dev_env=True)
+
+# Set up system-to-feature roles mapping for edx-rbac
+# This is important when roles are defined in the JWT.
+# The system role will be present in the JWT, the feature
+# role is what we use when defining permissions/predicates.
+SYSTEM_TO_FEATURE_ROLE_MAPPING = {
+    
+}

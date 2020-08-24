@@ -4,7 +4,6 @@
 #
 #    make upgrade
 #
-asgiref==3.2.10           # via -r requirements/base.txt, django
 certifi==2020.6.20        # via -r requirements/base.txt, requests
 cffi==1.14.2              # via -r requirements/base.txt, cryptography
 chardet==3.0.4            # via -r requirements/base.txt, requests
@@ -18,7 +17,7 @@ django-extensions==3.0.5  # via -r requirements/base.txt
 django-model-utils==4.0.0  # via -r requirements/base.txt, edx-rbac
 django-rest-swagger==2.2.0  # via -r requirements/base.txt
 django-waffle==1.0.0      # via -r requirements/base.txt, edx-django-utils, edx-drf-extensions
-django==3.1               # via -r requirements/base.txt, django-cors-headers, django-crum, django-model-utils, djangorestframework, drf-jwt, edx-auth-backends, edx-django-release-util, edx-django-utils, edx-drf-extensions, edx-rbac, rest-condition
+django==2.2.15            # via -r requirements/base.txt, django-cors-headers, django-crum, django-model-utils, djangorestframework, drf-jwt, edx-auth-backends, edx-django-release-util, edx-django-utils, edx-drf-extensions, edx-rbac, rest-condition
 djangorestframework==3.11.1  # via -r requirements/base.txt, django-rest-swagger, drf-jwt, edx-drf-extensions, rest-condition
 drf-jwt==1.17.0           # via -r requirements/base.txt, edx-drf-extensions
 edx-auth-backends==3.1.0  # via -r requirements/base.txt

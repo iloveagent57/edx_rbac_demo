@@ -13,4 +13,5 @@ edx-django-release-util
 edx-drf-extensions
 edx-rbac
 edx-rest-api-client==1.9.2
+mysqlclient
 pytz
