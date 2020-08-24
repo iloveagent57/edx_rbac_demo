@@ -2,7 +2,7 @@ version: "2.1"
 services:
   db:
     image: mysql:5.6
-    container_name: db
+    container_name: edx_rbac_demo.db
     environment:
       MYSQL_ROOT_PASSWORD: ""
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
@@ -13,13 +13,13 @@ services:
 
   memcache:
     image: memcached:1.4.24
-    container_name: memcache
+    container_name: edx_rbac_demo.memcache
 
-  edx_rbac_demo:
+  app:
     # Uncomment this line to use the official edx_rbac_demo base image
     image: openedx/edx_rbac_demo
 
-    container_name: edx_rbac_demo
+    container_name: edx_rbac_demo.app
     volumes:
       - .:/edx/app/edx_rbac_demo/
     command: bash -c 'gunicorn --reload --workers=2 --name edx_rbac_demo -b :8000 -c /edx/app/edx_rbac_demo/edx_rbac_demo/docker_gunicorn_configuration.py --log-file - --max-requests=1000 edx_rbac_demo.wsgi:application'

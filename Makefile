@@ -153,3 +153,28 @@ travis_docker_push: travis_docker_tag travis_docker_auth ## push to docker hub
 	docker push "openedx/edx_rbac_demo:$$TRAVIS_COMMIT"
 	docker push 'openedx/edx_rbac_demo:latest-newrelic'
 	docker push "openedx/edx_rbac_demo:$$TRAVIS_COMMIT-newrelic"
+
+
+dev.up: # Starts all containers
+	docker-compose up -d
+
+dev.up.build:
+	docker-compose up -d --build
+
+dev.down: # Kills containers and all of their data that isn't in volumes
+	docker-compose down
+
+dev.stop: # Stops containers so they can be restarted
+	docker-compose stop
+
+%-shell: # Run a shell, as root, on the specified service container
+	docker exec -u 0 -it edx_rbac_demo.$* bash
+
+%-logs: # View the logs of the specified service container
+	docker-compose logs -f --tail=500 $*
+
+%-restart: # Restart the specified service container
+	docker-compose restart $*
+
+%-attach:
+	docker attach edx_rbac_demo.$*
