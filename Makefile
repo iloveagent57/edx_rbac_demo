@@ -39,6 +39,9 @@ clean_pycrypto: ## temporary (?) hack to deal with the pycrypto dep that's insta
 
 requirements: clean_pycrypto piptools dev_requirements ## sync to default requirements
 
+
+requirements: piptools dev_requirements ## sync to default requirements
+
 ci_requirements: validation_requirements ## sync to requirements needed for CI checks
 
 dev_requirements: ## sync to requirements for local development

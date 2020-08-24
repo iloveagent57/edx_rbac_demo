@@ -1,8 +1,10 @@
+from copy import deepcopy
 import os
 from os.path import abspath, dirname, join
 
 from corsheaders.defaults import default_headers as corsheaders_default_headers
 
+from edx_rbac_demo.apps.core.constants import SYSTEM_TO_FEATURE_ROLE_MAPPING
 from edx_rbac_demo.settings.utils import get_logger_config
 
 # PATH vars
@@ -233,6 +235,4 @@ LOGGING = get_logger_config(debug=DEBUG, dev_env=True)
 # This is important when roles are defined in the JWT.
 # The system role will be present in the JWT, the feature
 # role is what we use when defining permissions/predicates.
-SYSTEM_TO_FEATURE_ROLE_MAPPING = {
-    
-}
+SYSTEM_TO_FEATURE_ROLE_MAPPING = deepcopy(SYSTEM_TO_FEATURE_ROLE_MAPPING)
