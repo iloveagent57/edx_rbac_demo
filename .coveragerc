@@ -1,0 +1,12 @@
+[run]
+branch = True
+data_file = .coverage
+source=edx_rbac_demo
+omit =
+    edx_rbac_demo/settings*
+    edx_rbac_demo/conf*
+    *wsgi.py
+    *migrations*
+    *admin.py
+    *static*
+    *templates*
