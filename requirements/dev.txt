@@ -20,25 +20,28 @@ cryptography==3.0         # via -r requirements/validation.txt, pyjwt, social-au
 defusedxml==0.6.0         # via -r requirements/validation.txt, python3-openid, social-auth-core
 diff-cover==3.0.1         # via -r requirements/dev.in
 django-cors-headers==3.4.0  # via -r requirements/validation.txt
+django-crum==0.7.7        # via -r requirements/validation.txt, edx-rbac
 django-debug-toolbar==2.2  # via -r requirements/dev.in
 django-dynamic-fixture==3.1.0  # via -r requirements/validation.txt
 django-extensions==3.0.5  # via -r requirements/validation.txt
+django-model-utils==4.0.0  # via -r requirements/validation.txt, edx-rbac
 django-rest-swagger==2.2.0  # via -r requirements/validation.txt
 django-waffle==1.0.0      # via -r requirements/validation.txt, edx-django-utils, edx-drf-extensions
-django==3.1               # via -r requirements/validation.txt, code-annotations, django-cors-headers, django-debug-toolbar, djangorestframework, drf-jwt, edx-auth-backends, edx-django-release-util, edx-django-utils, edx-drf-extensions, edx-i18n-tools, rest-condition
+django==3.1               # via -r requirements/validation.txt, code-annotations, django-cors-headers, django-crum, django-debug-toolbar, django-model-utils, djangorestframework, drf-jwt, edx-auth-backends, edx-django-release-util, edx-django-utils, edx-drf-extensions, edx-i18n-tools, edx-rbac, rest-condition
 djangorestframework==3.11.1  # via -r requirements/validation.txt, django-rest-swagger, drf-jwt, edx-drf-extensions, rest-condition
 drf-jwt==1.17.0           # via -r requirements/validation.txt, edx-drf-extensions
 edx-auth-backends==3.1.0  # via -r requirements/validation.txt
 edx-django-release-util==0.4.4  # via -r requirements/validation.txt
 edx-django-utils==3.7.3   # via -r requirements/validation.txt, edx-drf-extensions
-edx-drf-extensions==6.1.1  # via -r requirements/validation.txt
+edx-drf-extensions==6.1.1  # via -r requirements/validation.txt, edx-rbac
 edx-i18n-tools==0.5.3     # via -r requirements/dev.in
 edx-lint==1.5.2           # via -r requirements/validation.txt
 edx-opaque-keys==2.1.1    # via -r requirements/validation.txt, edx-drf-extensions
+edx-rbac==1.3.2           # via -r requirements/validation.txt
 edx-rest-api-client==1.9.2  # via -r requirements/validation.txt
 future==0.18.2            # via -r requirements/validation.txt, pyjwkest
 idna==2.10                # via -r requirements/validation.txt, requests
-importlib-metadata==1.7.0  # via -r requirements/validation.txt, inflect, pluggy, pytest, stevedore
+importlib-metadata==1.7.0  # via -r requirements/validation.txt, pluggy, pytest, stevedore
 inflect==4.1.0            # via jinja2-pluralize
 iniconfig==1.0.1          # via -r requirements/validation.txt, pytest
 isort==4.3.21             # via -r requirements/validation.txt, pylint
@@ -50,7 +53,7 @@ markupsafe==1.1.1         # via -r requirements/validation.txt, jinja2
 mccabe==0.6.1             # via -r requirements/validation.txt, pylint
 mock==4.0.2               # via -r requirements/validation.txt
 more-itertools==8.4.0     # via -r requirements/validation.txt, pytest
-newrelic==5.16.1.146      # via -r requirements/validation.txt, edx-django-utils
+newrelic==5.16.2.147      # via -r requirements/validation.txt, edx-django-utils
 oauthlib==3.1.0           # via -r requirements/validation.txt, requests-oauthlib, social-auth-core
 openapi-codec==1.3.2      # via -r requirements/validation.txt, django-rest-swagger
 packaging==20.4           # via -r requirements/validation.txt, pytest
@@ -88,7 +91,7 @@ requests==2.24.0          # via -r requirements/validation.txt, coreapi, edx-drf
 rest-condition==1.0.3     # via -r requirements/validation.txt, edx-drf-extensions
 semantic-version==2.8.5   # via -r requirements/validation.txt, edx-drf-extensions
 simplejson==3.17.2        # via -r requirements/validation.txt, django-rest-swagger
-six==1.15.0               # via -r requirements/pip-tools.txt, -r requirements/validation.txt, astroid, cryptography, diff-cover, django-dynamic-fixture, edx-auth-backends, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-lint, edx-opaque-keys, packaging, pip-tools, pyjwkest, python-dateutil, social-auth-app-django, social-auth-core
+six==1.15.0               # via -r requirements/pip-tools.txt, -r requirements/validation.txt, astroid, cryptography, diff-cover, django-dynamic-fixture, edx-auth-backends, edx-django-release-util, edx-drf-extensions, edx-i18n-tools, edx-lint, edx-opaque-keys, edx-rbac, packaging, pip-tools, pyjwkest, python-dateutil, social-auth-app-django, social-auth-core
 slumber==0.7.1            # via -r requirements/validation.txt, edx-rest-api-client
 snowballstemmer==2.0.0    # via -r requirements/validation.txt, pydocstyle
 social-auth-app-django==4.0.0  # via -r requirements/validation.txt, edx-auth-backends

@@ -11,5 +11,6 @@ edx-auth-backends
 edx-django-utils
 edx-django-release-util
 edx-drf-extensions
+edx-rbac
 edx-rest-api-client==1.9.2
 pytz

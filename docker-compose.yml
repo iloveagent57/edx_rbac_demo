@@ -22,13 +22,15 @@ services:
     container_name: edx_rbac_demo.app
     volumes:
       - .:/edx/app/edx_rbac_demo/
-    command: bash -c 'gunicorn --reload --workers=2 --name edx_rbac_demo -b :8000 -c /edx/app/edx_rbac_demo/edx_rbac_demo/docker_gunicorn_configuration.py --log-file - --max-requests=1000 edx_rbac_demo.wsgi:application'
+    command: bash -c 'while true; do python /edx/app/edx_rbac_demo/manage.py runserver 0.0.0.0:8000; sleep 2; done'
     environment:
       DJANGO_SETTINGS_MODULE: edx_rbac_demo.settings.devstack
     ports:
       - "8000:8000" # TODO: change this to your port
     networks:
       - devstack_default
+    stdin_open: true
+    tty: true
 
 networks:
   devstack_default:
@@ -36,3 +38,4 @@ networks:
 
 volumes:
   edx_rbac_demo_mysql:
+ 
