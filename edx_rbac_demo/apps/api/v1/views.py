@@ -45,5 +45,4 @@ class UserViewSet(BaseViewSet, viewsets.ReadOnlyModelViewSet):
         """
         # returns the User object with a primary key of the ``pk`` provided
         # in this request
-        import pdb; pdb.set_trace()
         return self.get_object()

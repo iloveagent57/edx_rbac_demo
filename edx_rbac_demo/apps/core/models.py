@@ -13,6 +13,9 @@ class Account(models.Model):
     uuid = models.UUIDField(primary_key=True)
     name = models.CharField(null=True, blank=True, default='Foo Corp', max_length=420)
 
+    def __str__(self):
+        return '<Account: {}>'.format(self.name)
+
 
 class User(AbstractUser):
     """

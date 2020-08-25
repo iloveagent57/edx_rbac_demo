@@ -29,6 +29,7 @@ def has_implicit_admin_access_to_user(requesting_user, user_obj):
     is being requested for, or if the requesting user has an admin
     role on the account of the ``user_obj``.
     """
+    log.info('\nThe current decoded JWT: \n{}\n'.format(current_decoded_jwt()))
     if not user_obj:
         return False
 
@@ -42,6 +43,7 @@ def has_implicit_admin_access_to_user(requesting_user, user_obj):
     )
     if has_admin_jwt_access:
         log.info('\nAccess allowed, because you are granted an admin system role in your JWT.\n')
+    return has_admin_jwt_access
 
 
 @rules.predicate
@@ -50,13 +52,14 @@ def is_user_requesting_data_for_self(requesting_user, user_obj):
     Returns True if the requesting user is the same as the ``user_obj`` access
     is being requested for.
     """
-    import pdb; pdb.set_trace()
     if not user_obj:
         return False
     
     if requesting_user == user_obj:
         log.info('\nAccess allowed, because you requested data about yourself.\n')
         return True
+
+    return False
 
 
 # You only have permission to read data about a user if you are that user,
