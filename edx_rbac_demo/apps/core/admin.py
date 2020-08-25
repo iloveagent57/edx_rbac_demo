@@ -26,7 +26,7 @@ class AccountAdmin(admin.ModelAdmin):
 
 class CustomUserAdmin(UserAdmin):
     """ Admin configuration for the custom User model. """
-    list_display = ('username', 'email', 'full_name', 'account', 'is_staff')
+    list_display = ('id', 'username', 'email', 'full_name', 'account', 'is_staff')
     fieldsets = (
         (None, {'fields': ('username', 'password', 'account')}),
         (_('Personal info'), {'fields': ('full_name', 'first_name', 'last_name', 'email')}),
