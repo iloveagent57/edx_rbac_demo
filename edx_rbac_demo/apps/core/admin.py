@@ -4,7 +4,24 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import ugettext_lazy as _
 
-from edx_rbac_demo.apps.core.models import User
+from edx_rbac_demo.apps.core.models import (
+    Account,
+    User,
+    DemoFeatureRole,
+    DemoRoleAssignment,
+)
+
+
+class DemoFeatureRoleAdmin(admin.ModelAdmin):
+    pass
+
+
+class DemoRoleAssignmentAdmin(admin.ModelAdmin):
+    pass
+
+
+class AccountAdmin(admin.ModelAdmin):
+    pass
 
 
 class CustomUserAdmin(UserAdmin):
@@ -20,3 +37,6 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(User, CustomUserAdmin)
+admin.site.register(Account, AccountAdmin)
+admin.site.register(DemoFeatureRole, DemoFeatureRoleAdmin)
+admin.site.register(DemoRoleAssignment, DemoRoleAssignmentAdmin)
