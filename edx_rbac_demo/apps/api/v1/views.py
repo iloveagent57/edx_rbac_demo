@@ -5,11 +5,11 @@ from edx_rest_framework_extensions.auth.jwt.authentication import (
 )
 from rest_framework import permissions, viewsets, serializers
 
-from edx_rbac_demo.apps.core.constants import ENTERPRISE_ACCOUNT_READ_PERMISSION
+from edx_rbac_demo.apps.core import constants
 from edx_rbac_demo.apps.core.models import User
 
 
-class BaseViewSet(PermissionRequiredMixin, viewsets.ViewSet):
+class BaseViewSet(PermissionRequiredMixin):
     """
     Base class for all view sets.
     """
@@ -31,17 +31,19 @@ class UserSerializer(serializers.ModelSerializer):
 class UserViewSet(BaseViewSet, viewsets.ReadOnlyModelViewSet):
     """
     View set for getting/setting data about users.
+    /api/v1/users/<pk>/
     """
     queryset = User.objects.all().order_by('email')
-    permission_required = ENTERPRISE_ACCOUNT_READ_PERMISSION
+    permission_required = constants.ENTERPRISE_USER_READ_PERMISSION
     serializer_class = UserSerializer
 
     def get_permission_object(self):
         """
-        Retrieves the apporpriate object to use during edx-rbac's permission checks.
+        Retrieves the apporpriate user object to use during edx-rbac's permission checks.
 
         This object is passed to the rule predicate(s).
         """
-        #import pdb; pdb.set_trace()
-        user = self.get_object()
-        return user.account
+        # returns the User object with a primary key of the ``pk`` provided
+        # in this request
+        import pdb; pdb.set_trace()
+        return self.get_object()
