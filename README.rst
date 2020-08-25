@@ -1,27 +1,33 @@
 edx_rbac_demo
 =============================
+This repository demonstrates how to make use of `edx-rbac <https://github.com/edx/edx-rbac>`_
+to control resource access in Django applications.
 
-|pypi-badge| |travis-badge| |codecov-badge| |doc-badge| |pyversions-badge|
-|license-badge|
-
-The ``README.rst`` file should start with a brief description of the repository,
-which sets it in the context of other repositories under the ``edx``
-organization. It should make clear where this fits in to the overall edX
-codebase.
-
-Demo of edx-rbac
-
-Overview (please modify)
-------------------------
-
-The ``README.rst`` file should then provide an overview of the code in this
-repository, including the main components and useful entry points for starting
-to understand the code in more detail.
-
-Documentation
+Startup Guide
 -------------
 
-(TODO: `Set up documentation <https://openedx.atlassian.net/wiki/spaces/DOC/pages/21627535/Publish+Documentation+on+Read+the+Docs>`_)
+First, clone this repository.  Then:
+
+#. Create (or use an existing) python virtual environment.  Run ``pip install -r requirements/pip-tools.txt``
+   to install local python dependency tools.
+
+#. ``make upgrade`` to compile the requirements ``*.txt`` files.
+
+#. ``make docker_build`` to build the docker images.
+   This will install the requirements/dependencies.
+
+#. ``docker-compose up`` to start the containers
+
+#. ``./provision-demo.sh`` to set up databases, run migrations, etc.
+
+#. Authenticate against the LMS (our central authentication service)
+   at http://localhost:18000/login
+
+#. Login to this demo service at http://localhost:8000/login - make sure that the request sends
+   the `use-jwt-cookie` header (there are browser extensions to help you easily do this).
+
+#. Visit one of the API endpoints like http://localhost:8000/api/v1/users/1/
+
 
 License
 -------
@@ -30,59 +36,3 @@ The code in this repository is licensed under the AGPL 3.0 unless
 otherwise noted.
 
 Please see `LICENSE.txt <LICENSE.txt>`_ for details.
-
-How To Contribute
------------------
-
-Contributions are very welcome.
-Please read `How To Contribute <https://github.com/edx/edx-platform/blob/master/CONTRIBUTING.rst>`_ for details.
-Even though they were written with ``edx-platform`` in mind, the guidelines
-should be followed for all Open edX projects.
-
-The pull request description template should be automatically applied if you are creating a pull request from GitHub. Otherwise you
-can find it at `PULL_REQUEST_TEMPLATE.md <.github/PULL_REQUEST_TEMPLATE.md>`_.
-
-The issue report template should be automatically applied if you are creating an issue on GitHub as well. Otherwise you
-can find it at `ISSUE_TEMPLATE.md <.github/ISSUE_TEMPLATE.md>`_.
-
-Reporting Security Issues
--------------------------
-
-Please do not report security issues in public. Please email security@edx.org.
-
-Getting Help
-------------
-
-If you're having trouble, we have discussion forums at https://discuss.openedx.org where you can connect with others in the community.
-
-Our real-time conversations are on Slack. You can request a `Slack invitation`_, then join our `community Slack workspace`_.
-
-For more information about these options, see the `Getting Help`_ page.
-
-.. _Slack invitation: https://openedx-slack-invite.herokuapp.com/
-.. _community Slack workspace: https://openedx.slack.com/
-.. _Getting Help: https://openedx.org/getting-help
-
-.. |pypi-badge| image:: https://img.shields.io/pypi/v/edx_rbac_demo.svg
-    :target: https://pypi.python.org/pypi/edx_rbac_demo/
-    :alt: PyPI
-
-.. |travis-badge| image:: https://travis-ci.org/edx/edx_rbac_demo.svg?branch=master
-    :target: https://travis-ci.org/edx/edx_rbac_demo
-    :alt: Travis
-
-.. |codecov-badge| image:: https://codecov.io/github/edx/edx_rbac_demo/coverage.svg?branch=master
-    :target: https://codecov.io/github/edx/edx_rbac_demo?branch=master
-    :alt: Codecov
-
-.. |doc-badge| image:: https://readthedocs.org/projects/edx_rbac_demo/badge/?version=latest
-    :target: https://edx_rbac_demo.readthedocs.io/en/latest/
-    :alt: Documentation
-
-.. |pyversions-badge| image:: https://img.shields.io/pypi/pyversions/edx_rbac_demo.svg
-    :target: https://pypi.python.org/pypi/edx_rbac_demo/
-    :alt: Supported Python versions
-
-.. |license-badge| image:: https://img.shields.io/github/license/edx/edx_rbac_demo.svg
-    :target: https://github.com/edx/edx_rbac_demo/blob/master/LICENSE.txt
-    :alt: License
